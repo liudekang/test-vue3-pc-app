@@ -1,26 +1,42 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
+  <div id="app">
+    <img src="./assets/logo.png" />
+    <header class="HEADERS">
+      <!-- router-link 定义点击后导航到哪个路径下 -->
+      <router-link class="roooo" :to="{name:'home'}">Home11</router-link>
+      <router-link to="/contact">About</router-link>
+    </header>
+    <!-- 对应的组件内容渲染到router-view中 -->
+    <router-view></router-view>
+  </div>
+</template> 
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    // HelloWorld
+  },
+  computed: {
+    // username() {
+    //   // 我们很快就会看到 `params` 是什么
+    //   // return this.$route.params.username
+    // },
+  },
+  methods: {
+    // goBack() {
+    //   window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    // }
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style> 
+.roooo{
+  color: red;
+  cursor: pointer;
+  margin:20px;
+  }
 </style>
