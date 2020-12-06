@@ -5,6 +5,10 @@ import App from './App.vue'
 import router from './router/index'
 import VueRouter from 'vue-router'
 const app = createApp(App)
+
+// if (process.env.MOCK) {    // 判断是否为mock模式
+    require('./mock/index.js')
+//   }
  
 console.log('999hr--',router,VueRouter);
 app.use(router)

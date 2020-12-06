@@ -1,0 +1,23 @@
+/*
+ * @Description: 引入mock.js及配置文件
+ * @Author: MrGao
+ * @LastEditors: Please set LastEditors
+ * @Date: 2019-03-12 10:35:08
+ * @LastEditTime: 2019-03-12 10:54:20
+ */
+
+import Mock from 'mockjs'
+import User from './user'
+
+Mock.mock('/root/login/checkMemberLogin', 'post', (options) => {  // 此处会劫持/root/login/checkMemberLogin接口，并返回数据
+
+    console.log('14--', options);
+
+    return User.userInfo  // 返回模拟数据
+})
+// Mock.mock('/root/login/checkMemberLogin', 'post', (options) => {  // 此处会劫持/root/login/checkMemberLogin接口，并返回数据
+
+//     console.log('14--', options);
+
+//     return User.userInfo  // 返回模拟数据
+// })

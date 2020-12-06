@@ -3,7 +3,7 @@
     <img src="./assets/logo.png" />
     <header class="HEADERS">
       <!-- router-link 定义点击后导航到哪个路径下 -->
-      <router-link class="roooo" :to="{name:'home'}">Home11</router-link>
+      <router-link class="roooo" :to="{ name: 'home' }">Home11</router-link>
       <router-link to="/contact">About</router-link>
     </header>
     <!-- 对应的组件内容渲染到router-view中 -->
@@ -12,6 +12,7 @@
 </template> 
 
 <script>
+import request from "utils/request";
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -25,18 +26,30 @@ export default {
     //   // return this.$route.params.username
     // },
   },
+  mounted() {
+    console.log("333000--", request);
+    this.getdata();
+  },
   methods: {
-    // goBack() {
-    //   window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
-    // }
+    getdata() {
+      request({
+        url: "/root/login/checkMemberLogin",
+        method: "post",
+        data: {
+          name: "小月",
+        },
+      }).then((res) => {
+        console.log("请求结果：", res);
+      });
+    },
   },
 };
 </script>
 
-<style> 
-.roooo{
+<style>
+.roooo {
   color: red;
   cursor: pointer;
-  margin:20px;
-  }
+  margin: 20px;
+}
 </style>
